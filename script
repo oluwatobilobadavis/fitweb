@@ -1,0 +1,1 @@
+mkdir -p /home/claude/fitstore/{css,js,images,admin} && echo "done"

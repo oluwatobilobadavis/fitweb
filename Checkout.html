@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout – The Fit Store</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/checkout.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<div class="topbar">
+  <span><i class="fas fa-lock"></i> Secure Checkout</span>
+  <span><i class="fas fa-phone-alt"></i> 08054372352</span>
+</div>
+<nav class="navbar scrolled" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <span class="logo-icon"><i class="fas fa-dumbbell"></i></span>
+      <div class="logo-text"><span class="logo-the">THE</span><span class="logo-fit">FIT</span><span class="logo-store">STORE</span></div>
+    </a>
+    <div style="margin-left:auto;color:var(--gray);font-size:0.9rem;display:flex;align-items:center;gap:0.5rem">
+      <i class="fas fa-lock" style="color:var(--red)"></i> Secure Checkout
+    </div>
+  </div>
+</nav>
+ 
+<section class="page-hero" style="padding:6rem 2rem 2rem">
+  <div class="page-hero-content">
+    <h1>Checkout</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <a href="cart.html">Cart</a> <i class="fas fa-chevron-right"></i> <span>Checkout</span></div>
+  </div>
+</section>
+ 
+<section class="checkout-section section-pad">
+  <div class="container">
+    <div class="checkout-wrapper">
+ 
+      <!-- FORM -->
+      <div class="checkout-form-area">
+        <div class="checkout-card">
+          <h3><i class="fas fa-user"></i> Contact Information</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" id="firstName" placeholder="John"/>
+            </div>
+            <div class="form-group">
+              <label>Last Name *</label>
+              <input type="text" id="lastName" placeholder="Doe"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" id="email" placeholder="john@email.com"/>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="phone" placeholder="080XXXXXXXX"/>
+          </div>
+        </div>
+ 
+        <div class="checkout-card">
+          <h3><i class="fas fa-map-marker-alt"></i> Delivery Address</h3>
+          <div class="form-group">
+            <label>Street Address *</label>
+            <input type="text" id="address" placeholder="123 Main Street"/>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>City *</label>
+              <input type="text" id="city" placeholder="Lagos"/>
+            </div>
+            <div class="form-group">
+              <label>State *</label>
+              <select id="state">
+                <option value="">Select State</option>
+                <option>Abia</option><option>Abuja (FCT)</option><option>Adamawa</option><option>Akwa Ibom</option>
+                <option>Anambra</option><option>Bauchi</option><option>Bayelsa</option><option>Benue</option>
+                <option>Borno</option><option>Cross River</option><option>Delta</option><option>Ebonyi</option>
+                <option>Edo</option><option>Ekiti</option><option>Enugu</option><option>Gombe</option>
+                <option>Imo</option><option>Jigawa</option><option>Kaduna</option><option>Kano</option>
+                <option>Katsina</option><option>Kebbi</option><option>Kogi</option><option>Kwara</option>
+                <option selected>Lagos</option><option>Nasarawa</option><option>Niger</option><option>Ogun</option>
+                <option>Ondo</option><option>Osun</option><option>Oyo</option><option>Plateau</option>
+                <option>Rivers</option><option>Sokoto</option><option>Taraba</option><option>Yobe</option><option>Zamfara</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Additional Notes (optional)</label>
+            <textarea id="notes" placeholder="Any special delivery instructions…" rows="3"></textarea>
+          </div>
+        </div>
+ 
+        <div class="checkout-card">
+          <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+          <div class="payment-methods">
+            <label class="pay-method active" id="pm-transfer">
+              <input type="radio" name="paymethod" value="transfer" checked/>
+              <div class="pm-icon"><i class="fas fa-university"></i></div>
+              <div class="pm-info">
+                <strong>Bank Transfer</strong>
+                <span>Transfer directly to our account</span>
+              </div>
+              <i class="fas fa-check-circle pm-check"></i>
+            </label>
+            <label class="pay-method" id="pm-paystack">
+              <input type="radio" name="paymethod" value="paystack"/>
+              <div class="pm-icon"><i class="fas fa-credit-card"></i></div>
+              <div class="pm-info">
+                <strong>Paystack</strong>
+                <span>Pay securely with card or USSD</span>
+              </div>
+              <i class="fas fa-check-circle pm-check"></i>
+            </label>
+            <label class="pay-method" id="pm-whatsapp">
+              <input type="radio" name="paymethod" value="whatsapp"/>
+              <div class="pm-icon"><i class="fab fa-whatsapp"></i></div>
+              <div class="pm-info">
+                <strong>Order via WhatsApp</strong>
+                <span>Confirm order on WhatsApp</span>
+              </div>
+              <i class="fas fa-check-circle pm-check"></i>
+            </label>
+          </div>
+ 
+          <!-- Bank Transfer Details -->
+          <div class="bank-details" id="bankDetails">
+            <div class="bank-info-card">
+              <i class="fas fa-university"></i>
+              <div>
+                <h4>Titan Trust Bank</h4>
+                <p>Account Number: <strong>9839274452</strong></p>
+                <p>Account Name: <strong>The Fit Store</strong></p>
+                <p style="margin-top:.5rem;font-size:.82rem;color:var(--gray)">Please send payment proof to WhatsApp: 08054372352</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- ORDER SUMMARY -->
+      <div class="order-summary">
+        <div class="checkout-card sticky-card">
+          <h3><i class="fas fa-shopping-bag"></i> Order Summary</h3>
+          <div class="order-items" id="orderItems"></div>
+          <div class="order-totals">
+            <div class="order-row"><span>Subtotal</span><span id="orderSubtotal">₦0</span></div>
+            <div class="order-row"><span>Delivery</span><span id="orderDelivery">Calculated at checkout</span></div>
+            <div class="order-row total-row"><span>Total</span><span id="orderTotal">₦0</span></div>
+          </div>
+          <button class="btn-primary place-order-btn" id="placeOrderBtn" style="width:100%;margin-top:1.5rem;justify-content:center">
+            Place Order <i class="fas fa-arrow-right"></i>
+          </button>
+          <div class="secure-note"><i class="fas fa-lock"></i> 100% Secure & Encrypted</div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal" style="display:none">
+  <div class="modal">
+    <div class="modal-icon"><i class="fas fa-check-circle"></i></div>
+    <h2>Order Placed! 🎉</h2>
+    <p>Thank you for your order! We'll contact you shortly on <strong id="confirmPhone"></strong> to confirm delivery details.</p>
+    <p style="margin-top:1rem">For bank transfer, please send your payment proof to WhatsApp: <strong>08054372352</strong></p>
+    <a href="https://wa.me/2348054372352?text=I%20just%20placed%20an%20order%20on%20The%20Fit%20Store!" class="btn-primary" target="_blank" style="margin-top:1.5rem;display:inline-flex;align-items:center;gap:.5rem"><i class="fab fa-whatsapp"></i> Confirm on WhatsApp</a>
+    <a href="index.html" class="btn-ghost" style="margin-top:.75rem;display:inline-flex;align-items:center;gap:.5rem">Back to Home</a>
+  </div>
+</div>
+ 
+<a href="https://wa.me/2348054372352" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="wa-tooltip">Order on WhatsApp</span></a>
+ 
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

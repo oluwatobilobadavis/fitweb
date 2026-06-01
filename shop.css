@@ -1,0 +1,152 @@
+/* =============================================
+   THE FIT STORE – SHOP PAGE CSS
+   ============================================= */
+ 
+.page-hero {
+  background: linear-gradient(135deg, var(--dark) 0%, #1a0000 100%);
+  padding: 8rem 2rem 3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(227,30,36,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227,30,36,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+.page-hero-content { position: relative; z-index: 1; }
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 0.75rem;
+  color: var(--white);
+}
+.breadcrumb {
+  display: flex; align-items: center; gap: 0.5rem;
+  justify-content: center;
+  color: var(--gray); font-size: 0.9rem;
+}
+.breadcrumb a { color: var(--red); }
+.breadcrumb i { font-size: 0.7rem; }
+ 
+/* ---- SHOP LAYOUT ---- */
+.shop-wrapper {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .shop-wrapper { grid-template-columns: 1fr; } }
+ 
+/* ---- SIDEBAR ---- */
+.shop-sidebar {
+  background: var(--dark2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: sticky;
+  top: 90px;
+}
+.filter-section { margin-bottom: 2rem; }
+.filter-section:last-child { margin-bottom: 0; }
+.filter-section h4 {
+  font-family: var(--font-cond);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+.filter-list { display: flex; flex-direction: column; gap: 0.25rem; }
+.filter-link {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--gray-light);
+  transition: var(--transition);
+  cursor: pointer;
+}
+.filter-link:hover, .filter-link.active {
+  background: rgba(227,30,36,0.12);
+  color: var(--white);
+}
+.filter-link.active { color: var(--red); font-weight: 700; }
+.filter-link i { color: var(--red); width: 16px; }
+ 
+.filter-select {
+  width: 100%;
+  background: var(--dark3);
+  border: 1px solid var(--glass-border);
+  color: var(--white);
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+.filter-select:focus { border-color: var(--red); }
+ 
+.price-range input[type="range"] {
+  width: 100%;
+  accent-color: var(--red);
+  margin-bottom: 0.75rem;
+}
+.price-labels {
+  display: flex; justify-content: space-between;
+  font-size: 0.82rem; color: var(--gray);
+}
+ 
+/* ---- SHOP MAIN ---- */
+.shop-main {}
+.shop-toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+.product-count { color: var(--gray); font-size: 0.9rem; }
+.product-count strong { color: var(--white); }
+.view-toggle { display: flex; gap: 0.5rem; }
+.view-btn {
+  width: 36px; height: 36px;
+  background: var(--dark3);
+  border: 1px solid var(--glass-border);
+  color: var(--gray);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.view-btn.active, .view-btn:hover {
+  background: var(--red); border-color: var(--red); color: var(--white);
+}
+ 
+/* List View */
+.products-grid.list-view {
+  grid-template-columns: 1fr !important;
+}
+.products-grid.list-view .product-card {
+  flex-direction: row;
+}
+.products-grid.list-view .product-image {
+  width: 160px; min-width: 160px; height: 160px;
+}
+ 
+.no-results {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--gray);
+}
+.no-results i { font-size: 3rem; margin-bottom: 1rem; opacity: 0.3; display: block; }
+.no-results p { margin-bottom: 1.5rem; }

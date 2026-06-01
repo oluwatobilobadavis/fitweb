@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop – The Fit Store</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="animations.css" />
+<link rel="stylesheet" href="shop.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+ 
+<div class="topbar">
+  <span><i class="fas fa-shipping-fast"></i> Free delivery on orders over ₦50,000</span>
+  <span><i class="fab fa-instagram"></i> <a href="https://instagram.com/thefitstore.ng" target="_blank">@thefitstore.ng</a></span>
+  <span><i class="fas fa-phone-alt"></i> 08054372352</span>
+</div>
+ 
+<nav class="navbar scrolled" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <span class="logo-icon"><i class="fas fa-dumbbell"></i></span>
+      <div class="logo-text"><span class="logo-the">THE</span><span class="logo-fit">FIT</span><span class="logo-store">STORE</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="shop.html" class="active">Shop <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="shop.html?cat=creatine"><i class="fas fa-flask"></i> Creatine</a>
+          <a href="shop.html?cat=preworkout"><i class="fas fa-bolt"></i> Pre-Workout / BCAA / Vitamins</a>
+          <a href="shop.html?cat=massgainer"><i class="fas fa-weight"></i> Mass Gainer</a>
+          <a href="shop.html?cat=wheyprotein"><i class="fas fa-blender"></i> Whey Protein</a>
+          <a href="shop.html?cat=gymwear"><i class="fas fa-tshirt"></i> Gym Wear</a>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchToggle"><i class="fas fa-search"></i></button>
+      <button class="icon-btn" id="cartToggle"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></button>
+      <a href="admin/index.html" class="icon-btn"><i class="fas fa-cog"></i></a>
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+  <div class="search-bar" id="searchBar">
+    <div class="search-inner">
+      <input type="text" id="searchInput" placeholder="Search products…" autocomplete="off"/>
+      <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+      <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</nav>
+ 
+<!-- PAGE HEADER -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1 id="pageTitle">All Products</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Shop</span></div>
+  </div>
+</section>
+ 
+<!-- SHOP LAYOUT -->
+<section class="shop-layout section-pad">
+  <div class="container">
+    <div class="shop-wrapper">
+ 
+      <!-- SIDEBAR FILTERS -->
+      <aside class="shop-sidebar">
+        <div class="filter-section">
+          <h4>Categories</h4>
+          <ul class="filter-list" id="catFilter">
+            <li><a href="shop.html" class="filter-link" data-cat="all"><i class="fas fa-th"></i> All Products</a></li>
+            <li><a href="#" class="filter-link" data-cat="creatine"><i class="fas fa-flask"></i> Creatine</a></li>
+            <li><a href="#" class="filter-link" data-cat="preworkout"><i class="fas fa-bolt"></i> Pre-Workout / BCAA</a></li>
+            <li><a href="#" class="filter-link" data-cat="massgainer"><i class="fas fa-weight"></i> Mass Gainer</a></li>
+            <li><a href="#" class="filter-link" data-cat="wheyprotein"><i class="fas fa-blender"></i> Whey Protein</a></li>
+            <li><a href="#" class="filter-link" data-cat="gymwear"><i class="fas fa-tshirt"></i> Gym Wear</a></li>
+          </ul>
+        </div>
+        <div class="filter-section">
+          <h4>Sort By</h4>
+          <select id="sortSelect" class="filter-select">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+        <div class="filter-section">
+          <h4>Price Range</h4>
+          <div class="price-range">
+            <input type="range" id="priceRange" min="0" max="60000" value="60000" step="1000"/>
+            <div class="price-labels">
+              <span>₦0</span>
+              <span id="priceMax">₦60,000</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+ 
+      <!-- PRODUCTS AREA -->
+      <div class="shop-main">
+        <div class="shop-toolbar">
+          <span id="productCount" class="product-count"></span>
+          <div class="view-toggle">
+            <button class="view-btn active" id="gridViewBtn" title="Grid view"><i class="fas fa-th"></i></button>
+            <button class="view-btn" id="listViewBtn" title="List view"><i class="fas fa-list"></i></button>
+          </div>
+        </div>
+        <div class="products-grid" id="shopGrid"></div>
+        <div class="no-results" id="noResults" style="display:none">
+          <i class="fas fa-search"></i>
+          <p>No products found. Try a different filter.</p>
+          <a href="shop.html" class="btn-primary">Clear Filters</a>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo"><span class="logo-icon"><i class="fas fa-dumbbell"></i></span><div class="logo-text"><span class="logo-the">THE</span><span class="logo-fit">FIT</span><span class="logo-store">STORE</span></div></div>
+      <p>Nigeria's premium destination for authentic supplements and gym wear.</p>
+      <div class="social-links">
+        <a href="https://instagram.com/thefitstore.ng" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/2348054372352" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:08054372352"><i class="fas fa-phone-alt"></i></a>
+      </div>
+    </div>
+    <div class="footer-links"><h4>Categories</h4><ul>
+      <li><a href="shop.html?cat=creatine">Creatine</a></li>
+      <li><a href="shop.html?cat=preworkout">Pre-Workout / BCAA</a></li>
+      <li><a href="shop.html?cat=massgainer">Mass Gainer</a></li>
+      <li><a href="shop.html?cat=wheyprotein">Whey Protein</a></li>
+      <li><a href="shop.html?cat=gymwear">Gym Wear</a></li>
+    </ul></div>
+    <div class="footer-links"><h4>Quick Links</h4><ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul></div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="fas fa-phone-alt"></i> 08054372352</p>
+      <p><i class="fab fa-instagram"></i> @thefitstore.ng</p>
+      <div class="payment-icons">
+        <span class="pay-badge"><i class="fas fa-university"></i> Bank Transfer</span>
+        <span class="pay-badge"><i class="fas fa-credit-card"></i> Paystack</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 The Fit Store. All rights reserved.</p></div>
+</footer>
+ 
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header"><h3><i class="fas fa-shopping-bag"></i> Your Cart</h3><button id="closeCart"><i class="fas fa-times"></i></button></div>
+  <div class="cart-items" id="cartItems"><div class="empty-cart"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div></div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">Total: <strong id="cartTotal">₦0</strong></div>
+    <a href="checkout.html" class="btn-primary" style="width:100%;text-align:center;display:block">Checkout <i class="fas fa-arrow-right"></i></a>
+  </div>
+</div>
+ 
+<a href="https://wa.me/2348054372352?text=Hello!%20I%20want%20to%20place%20an%20order." class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i><span class="wa-tooltip">Order on WhatsApp</span>
+</a>
+<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+ 
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>
